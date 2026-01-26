@@ -17,7 +17,7 @@ const CosmeticGynecology = () => {
         ? "Non-invasive laser treatments for intimate wellness, promoting tissue regeneration and restoring natural vitality with minimal downtime."
         : "علاجات ليزر غير جراحية للعناية الحميمة، تعزز تجديد الأنسجة واستعادة الحيوية الطبيعية مع فترة تعافي قصيرة.",
       image: "/images/Cosmetic Gynecology Consultation.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Plasma Bikini " : "بكيني البلازما",
@@ -25,7 +25,7 @@ const CosmeticGynecology = () => {
         ? "Advanced reconstructive procedures performed by specialized surgeons, combining medical expertise with aesthetic precision for optimal results."
         : "إجراءات ترميمية متقدمة يجريها جراحون متخصصون، تجمع بين الخبرة الطبية والدقة الجمالية لنتائج مثالية.",
       image: "/images/bikini.gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Cutting blades" : " قص الشفرات ",
@@ -33,7 +33,7 @@ const CosmeticGynecology = () => {
         ? "Comprehensive post-pregnancy restoration programs designed to help new mothers regain confidence and comfort in their bodies."
         : "برامج استعادة شاملة بعد الحمل مصممة لمساعدة الأمهات الجدد على استعادة الثقة والراحة في أجسادهن.",
       image: "/images/protect.gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Vaginal cleaning " : " تنظيف المهبل ",
@@ -41,7 +41,7 @@ const CosmeticGynecology = () => {
         ? "Comprehensive post-pregnancy restoration programs designed to help new mothers regain confidence and comfort in their bodies."
         : "برامج استعادة شاملة بعد الحمل مصممة لمساعدة الأمهات الجدد على استعادة الثقة والراحة في أجسادهن.",
       image: "/images/Vaginal cleaning.gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
   ];
 

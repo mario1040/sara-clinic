@@ -17,7 +17,7 @@ const Dermatology = () => {
         ? "Smooth wrinkles and restore volume with our premium injectables."
         : "تنعيم التجاعيد واستعادة الحجم مع حقننا الفاخرة.",
       image: "/images/Aesthetic-filler.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Botox" : "البوتوكس",
@@ -25,7 +25,7 @@ const Dermatology = () => {
         ? "Reveal brighter, smoother skin with customized peel treatments."
         : "اكشف عن بشرة أكثر إشراقاً ونعومة مع علاجات التقشير المخصصة.",
       image: "/images/Aesthetic-botox.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Skin Booster" : "معززات البشرة",
@@ -33,7 +33,7 @@ const Dermatology = () => {
         ? "Advanced laser technology for skin resurfacing and rejuvenation."
         : "تقنية الليزر المتقدمة لتجديد سطح البشرة وتجديدها.",
       image: "/images/Aesthetic-skin-booster.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Breast Reduction" : "تقليل حجم الثدي",
@@ -41,7 +41,7 @@ const Dermatology = () => {
         ? "Comprehensive solutions for clear, healthy skin."
         : "حلول شاملة لبشرة صافية وصحية.",
       image: "/images/breast-reduction (1).gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Breast Augmentation" : "تكبير الثدي",
@@ -49,7 +49,7 @@ const Dermatology = () => {
         ? "Restore youthful glow with our advanced rejuvenation protocols."
         : "استعد توهج الشباب مع بروتوكولات التجديد المتقدمة لدينا.",
       image: "/images/breast-augmentation.gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Liposuction & Fat Transfer" : "شفط الدهون ونقل الدهون",
@@ -57,7 +57,7 @@ const Dermatology = () => {
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
       image: "/images/fat-removal.gif",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Body Contouring" : "تقويم الجسم",
@@ -65,7 +65,7 @@ const Dermatology = () => {
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
       image: "/images/lose-weight.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
     {
       name: language === "en" ? "Buttock Augmentation" : " تكبير الأرداف",
@@ -73,7 +73,7 @@ const Dermatology = () => {
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
       image: "/images/buttocks.png",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
     },
   ];
 
