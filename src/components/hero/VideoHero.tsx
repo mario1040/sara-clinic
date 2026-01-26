@@ -20,7 +20,7 @@ const VideoHero = () => {
         poster="/video-poster.jpg" 
       >
         {/* 👇 هام جداً: غير الاسم ده لاسم الفيديو بتاعك اللي في الـ public */}
-        <source src="/public/videos/video1.MP4" type="video/mp4" />
+        <source src="https://youtu.be/UXLG0gJMx8k" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
