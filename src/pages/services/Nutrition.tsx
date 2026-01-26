@@ -17,7 +17,7 @@ const Nutrition = () => {
         ? "Personalized weight loss and maintenance programs combining nutrition science with behavioral coaching for sustainable results."
         : "برامج مخصصة لفقدان الوزن والحفاظ عليه تجمع بين علم التغذية والتدريب السلوكي لنتائج مستدامة.",
       image: "/images/clinical nutrition consultant.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Clinical Nutrition manjaro" : "التغذية السريرية مانجارو",
@@ -25,7 +25,7 @@ const Nutrition = () => {
         ? "Revolutionary genetic testing to create your perfect diet plan based on your unique DNA profile and metabolic markers."
         : "اختبارات جينية ثورية لإنشاء خطة النظام الغذائي المثالي بناءً على ملفك الوراثي الفريد ومؤشراتك الأيضية.",
       image: "/images/Clinical Nutrition manjaro.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Clinical Nutrition Mezotherapy" : "التغذية السريرية الميزوثيرابي",
@@ -33,7 +33,7 @@ const Nutrition = () => {
         ? "Advanced InBody scanning technology providing detailed insights into muscle mass, body fat percentage, and metabolic health."
         : "تقنية مسح InBody المتقدمة توفر رؤى تفصيلية حول كتلة العضلات ونسبة الدهون والصحة الأيضية.",
       image: "/images/clinical nutrition mezotherapy.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Chronic Disease Nutrition" : "تغذية الأمراض المزمنة",
@@ -41,7 +41,7 @@ const Nutrition = () => {
         ? "Specialized dietary protocols for managing diabetes, heart disease, autoimmune conditions, and other chronic health challenges."
         : "بروتوكولات غذائية متخصصة لإدارة مرض السكري وأمراض القلب والمناعة الذاتية والتحديات الصحية المزمنة الأخرى.",
       image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=800&auto=format&fit=crop",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
   ];
 

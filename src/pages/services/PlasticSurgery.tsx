@@ -17,7 +17,7 @@ const PlasticSurgery = () => {
         ? "Advanced facial treatments to restore glow, elasticity, and youthful radiance."
         : "علاجات متقدمة للوجه لاستعادة النضارة، المرونة، والإشراق الشبابي.",
       image: "/images/plastic-skin.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Hair Restoration" : "علاجات الشعر",
@@ -25,7 +25,7 @@ const PlasticSurgery = () => {
         ? "Innovative solutions for hair loss and scalp health using modern regeneration techniques."
         : "حلول مبتكرة لتساقط الشعر وصحة فروة الرأس باستخدام تقنيات التجديد الحديثة.",
       image: "/images/plastic-hair.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Dermatological Conditions" : "الحالات الجلدية",
@@ -33,7 +33,7 @@ const PlasticSurgery = () => {
         ? "Expert medical care for chronic skin conditions, acne scars, and pigmentation."
         : "رعاية طبية خبيرة للحالات الجلدية المزمنة، آثار حب الشباب، والتصبغات.",
       image: "/images/plastic-Dermatological-Conditions.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? "Laser Treatments" : "العلاجات بالليزر",
@@ -41,7 +41,7 @@ const PlasticSurgery = () => {
         ? "State-of-the-art laser technology for skin resurfacing, hair removal, and vessel treatment."
         : "أحدث تقنيات الليزر لتجديد سطح الجلد، إزالة الشعر، وعلاج الأوعية الدموية.",
       image: "/images/plastic-Laser.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
   ];
 

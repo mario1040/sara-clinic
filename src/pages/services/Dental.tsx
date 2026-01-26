@@ -10,55 +10,55 @@ const Dental = () => {
   const { language, isRTL, t } = useLanguage();
   const ArrowBack = isRTL ? ArrowRight : ArrowLeft;
 
-  const procedures = [
+const procedures = [
     {
       name: language === "en" ? "Dental Crowns & Bridges" : " كرون وجسور الأسنان",
       description: language === "en" 
         ? "Permanent tooth replacement with natural-looking results using titanium implants."
         : "استبدال دائم للأسنان بنتائج طبيعية المظهر باستخدام غرسات التيتانيوم.",
       image: "/images/Dental Crowns & Bridges.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Filling Root Canal" : "  حشو قناة الجذر",
+      name: language === "en" ? "Filling Root Canal" : "   حشو قناة الجذر",
       description: language === "en" 
         ? "Transform your smile with custom porcelain veneers for a flawless appearance."
         : "حوّل ابتسامتك مع قشور البورسلين المخصصة للحصول على مظهر مثالي.",
       image: "/images/Fillings Root Canal.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Filling Regular" : "  الحشو العادي",
+      name: language === "en" ? "Filling Regular" : "   الحشو العادي",
       description: language === "en" 
         ? "Professional whitening treatments for a brighter, more confident smile."
         : "علاجات تبييض احترافية لابتسامة أكثر إشراقاً وثقة.",
       image: "/images/Filling Regular.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     
     {
-      name: language === "en" ? "Filling Cosmatic" : "  الحشو التجميلي",
+      name: language === "en" ? "Filling Cosmatic" : "   الحشو التجميلي",
       description: language === "en" 
         ? "Pain-free root canal therapy with advanced techniques and technology."
         : "علاج قناة الجذر بدون ألم مع تقنيات وتكنولوجيا متقدمة.",
       image: "/images/Filling Cosmatic.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Filling pedatical" : "  الحشو للأطفال",
+      name: language === "en" ? "Filling pedatical" : "   الحشو للأطفال",
       description: language === "en" 
         ? "Straighten your teeth with modern braces and invisible aligners."
         : "قوّم أسنانك مع التقويم الحديث والمصففات الشفافة.",
       image: "/images/Filling pedatical.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? " orthodontics" : "  تقويم الأسنان",
+      name: language === "en" ? " orthodontics" : "   تقويم الأسنان",
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/orthodontics.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? " Teeth Whitening Laser" : " تبييض الأسنان بالليزر",
@@ -66,7 +66,7 @@ const Dental = () => {
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/teeth whitening laser.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
       name: language === "en" ? " Teeth Whitening Home Kits" : " معدات تبييض الأسنان المنزلية",
@@ -74,31 +74,31 @@ const Dental = () => {
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/teeth whitening home kits.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Teeth Extraction Simple" : "  خلع الأسنان البسيط",
+      name: language === "en" ? "Teeth Extraction Simple" : "   خلع الأسنان البسيط",
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/teeth extraction simple.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Teeth Extraction Surgery" : "  جراحة خلع الأسنان",
+      name: language === "en" ? "Teeth Extraction Surgery" : "   جراحة خلع الأسنان",
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/teeth ex sur.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
     {
-      name: language === "en" ? "Scaling and Polishing" : "  تنظيف وتلميع الأسنان",
+      name: language === "en" ? "Scaling and Polishing" : "   تنظيف وتلميع الأسنان",
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
       image: "/images/scaling and polishing.png",
-      videoUrl: "https://youtu.be/UXLG0gJMx8k?si=URbXxGsCMumvYVoi",
+      videoUrl: "https://www.youtube.com/embed/UXLG0gJMx8k",
     },
   ];
 
