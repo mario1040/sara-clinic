@@ -12,31 +12,31 @@ const ServicesSection = () => {
       title: t.services.plasticSurgery.title,
       description: t.services.plasticSurgery.description,
       href: "/services/plastic-surgery",
-      image: "/public/images/service1.png",
+      image: "/images/service1.png",
     },
     {
       title: t.services.dermatology.title,
       description: t.services.dermatology.description,
       href: "/services/dermatology",
-      image: "/public/images/service2.png",
+      image: "/images/service2.png",
     },
     {
       title: t.services.dental.title,
       description: t.services.dental.description,
       href: "/services/dental",
-      image: "/public/images/service3.png",
+      image: "/images/service3.png",
     },
     {
       title: t.services.nutrition.title,
       description: t.services.nutrition.description,
       href: "/services/nutrition",
-      image: "/public/images/service4.png",
+      image: "/images/service4.png",
     },
     {
       title: t.services.cosmeticGynecology.title,
       description: t.services.cosmeticGynecology.description,
       href: "/services/cosmetic-gynecology",
-      image: "/public/images/service5.png",
+      image: "/images/service5.png",
     },
   ];
 

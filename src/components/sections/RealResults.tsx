@@ -32,7 +32,7 @@ const specialties: Specialty[] = [
     id: "hair-transplant",
     labelEn: "Hair Transplant",
     labelAr: "زراعة شعر",
-    iconPath: "/public/images/icons/hair-transplant (1).png", // اكتب هنا مسار الأيقونة الخاصة بك
+    iconPath: "/images/icons/hair-transplant (1).png", // اكتب هنا مسار الأيقونة الخاصة بك
     icon: <User className="w-5 h-5" />,
     services: [
       { id: "hair1", labelEn: "Frontal Area", labelAr: "مقدمة الرأس", case: { before: "/images/imagecb2.png", after: "/images/imageca2.png" } },
@@ -44,7 +44,7 @@ const specialties: Specialty[] = [
     id: "lip-filler",
     labelEn: "Lip Filler",
     labelAr: "فيلر الشفايف",
-    iconPath: "/public/images/icons/lips.png", // مثال لمسار أيقونة الفيلر
+    iconPath: "/images/icons/lips.png", // مثال لمسار أيقونة الفيلر
     icon: <Smile className="w-5 h-5" />,
     services: [
       { id: "lip1", labelEn: "Russian Lips", labelAr: "الشفاه الروسية", case: { before: "/images/imagecb5.png", after: "/images/imageca5.png" } },
@@ -57,7 +57,7 @@ const specialties: Specialty[] = [
     id: "peeling",
     labelEn: "Peeling",
     labelAr: "تقشير",
-    iconPath: "/public/images/icons/facial-treatment.png",
+    iconPath: "/images/icons/facial-treatment.png",
     icon: <Eraser className="w-5 h-5" />,
     services: [
       { id: "peel1", labelEn: "Cold Peel", labelAr: "تقشير بارد", case: { before: "/images/imagecb1.png", after: "/images/imageca1.png" } },
@@ -68,7 +68,7 @@ const specialties: Specialty[] = [
     id: "rhinoplasty",
     labelEn: "Rhinoplasty",
     labelAr: "تجميل الأنف",
-    iconPath: "/public/images/icons/rhinoplasty.png",
+    iconPath: "/images/icons/rhinoplasty.png",
     icon: <Scissors className="w-5 h-5" />,
     services: [
       { id: "rhino1", labelEn: "Surgical", labelAr: "جراحي", case: { before: "/images/imagecb10.png", after: "/images/imageca10.png" } },
@@ -79,7 +79,7 @@ const specialties: Specialty[] = [
     id: "marionette",
     labelEn: "Marionette",
     labelAr: "خطوط الحزن",
-    iconPath: "/public/images/icons/face.png",
+    iconPath: "/images/icons/face.png",
     icon: <Syringe className="w-5 h-5" />,
     services: [
       { id: "mar1", labelEn: "Filler", labelAr: "فيلر", case: { before: "/images/imagecb9.png", after: "/images/imageca9.png" } },
@@ -90,7 +90,7 @@ const specialties: Specialty[] = [
     id: "baldness",
     labelEn: "Baldness",
     labelAr: "صلع وراثي",
-    iconPath: "/public/images/icons/head.png",
+    iconPath: "/images/icons/head.png",
     icon: <Sparkles className="w-5 h-5" />,
     services: [
       { id: "bald1", labelEn: "Regenera", labelAr: "ريجينيرا", case: { before: "/images/imagecb2.png", after: "/images/imageca2.png" } },
@@ -101,7 +101,7 @@ const specialties: Specialty[] = [
     id: "dermatology",
     labelEn: "Dermatology",
     labelAr: "الجلدية",
-    iconPath: "/public/images/icons/acne.png",
+    iconPath: "/images/icons/acne.png",
     icon: <Activity className="w-5 h-5" />,
     services: [
       { id: "derm1", labelEn: "Acne", labelAr: "حب الشباب", case: { before: "/images/imagecb7.png", after: "/images/imageca7.png" } },

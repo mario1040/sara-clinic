@@ -16,7 +16,7 @@ const Nutrition = () => {
       description: language === "en" 
         ? "Personalized weight loss and maintenance programs combining nutrition science with behavioral coaching for sustainable results."
         : "برامج مخصصة لفقدان الوزن والحفاظ عليه تجمع بين علم التغذية والتدريب السلوكي لنتائج مستدامة.",
-      image: "/public/images/clinical nutrition consultant.png",
+      image: "/images/clinical nutrition consultant.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -24,7 +24,7 @@ const Nutrition = () => {
       description: language === "en" 
         ? "Revolutionary genetic testing to create your perfect diet plan based on your unique DNA profile and metabolic markers."
         : "اختبارات جينية ثورية لإنشاء خطة النظام الغذائي المثالي بناءً على ملفك الوراثي الفريد ومؤشراتك الأيضية.",
-      image: "/public/images/Clinical Nutrition manjaro.png",
+      image: "/images/Clinical Nutrition manjaro.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -32,7 +32,7 @@ const Nutrition = () => {
       description: language === "en" 
         ? "Advanced InBody scanning technology providing detailed insights into muscle mass, body fat percentage, and metabolic health."
         : "تقنية مسح InBody المتقدمة توفر رؤى تفصيلية حول كتلة العضلات ونسبة الدهون والصحة الأيضية.",
-      image: "/public/images/clinical nutrition mezotherapy.png",
+      image: "/images/clinical nutrition mezotherapy.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {

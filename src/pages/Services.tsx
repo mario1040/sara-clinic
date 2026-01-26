@@ -14,7 +14,7 @@ const Services = () => {
       title: t.services.plasticSurgery.title,
       description: t.services.plasticSurgery.description,
       href: "/services/plastic-surgery",
-      image: "/public/images/service1.png",
+      image: "/images/service1.png",
       procedures: language === "en" 
         ? ["Rhinoplasty", "Facelift", "Liposuction", "Breast Surgery", "Tummy Tuck"]
         : ["تجميل الأنف", "شد الوجه", "شفط الدهون", "جراحة الثدي", "شد البطن"],
@@ -23,7 +23,7 @@ const Services = () => {
       title: t.services.dermatology.title,
       description: t.services.dermatology.description,
       href: "/services/dermatology",
-      image: "/public/images/service2.png",
+      image: "/images/service2.png",
       procedures: language === "en" 
         ? ["Botox & Fillers", "Chemical Peels", "Laser Treatments", "Acne Treatment", "Skin Rejuvenation"]
         : ["البوتوكس والفيلر", "التقشير الكيميائي", "علاجات الليزر", "علاج حب الشباب", "تجديد البشرة"],
@@ -32,7 +32,7 @@ const Services = () => {
       title: t.services.dental.title,
       description: t.services.dental.description,
       href: "/services/dental",
-      image: "/public/images/service3.png",
+      image: "/images/service3.png",
       procedures: language === "en" 
         ? ["Dental Implants", "Veneers", "Teeth Whitening", "Orthodontics", "Root Canal"]
         : ["زراعة الأسنان", "القشور", "تبييض الأسنان", "تقويم الأسنان", "علاج الجذور"],
@@ -41,7 +41,7 @@ const Services = () => {
       title: t.services.nutrition.title,
       description: t.services.nutrition.description,
       href: "/services/nutrition",
-      image: "/public/images/service4.png",
+      image: "/images/service4.png",
       procedures: language === "en"
         ? ["Weight Management", "DNA-based Diets", "Body Composition", "Chronic Disease Nutrition"]
         : ["إدارة الوزن", "حميات الحمض النووي", "تحليل تكوين الجسم", "تغذية الأمراض المزمنة"],
@@ -50,7 +50,7 @@ const Services = () => {
       title: t.services.cosmeticGynecology.title,
       description: t.services.cosmeticGynecology.description,
       href: "/services/cosmetic-gynecology",
-      image: "/public/images/service5.png",
+      image: "/images/service5.png",
       procedures: language === "en" 
         ? ["Laser Rejuvenation", "Aesthetic Reconstruction", "Post-natal Wellness"]
         : ["التجديد بالليزر", "الترميم التجميلي", "العناية بعد الولادة"],

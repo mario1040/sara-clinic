@@ -16,7 +16,7 @@ const CosmeticGynecology = () => {
       description: language === "en" 
         ? "Non-invasive laser treatments for intimate wellness, promoting tissue regeneration and restoring natural vitality with minimal downtime."
         : "علاجات ليزر غير جراحية للعناية الحميمة، تعزز تجديد الأنسجة واستعادة الحيوية الطبيعية مع فترة تعافي قصيرة.",
-      image: "/public/images/Cosmetic Gynecology Consultation.png",
+      image: "/images/Cosmetic Gynecology Consultation.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -24,7 +24,7 @@ const CosmeticGynecology = () => {
       description: language === "en" 
         ? "Advanced reconstructive procedures performed by specialized surgeons, combining medical expertise with aesthetic precision for optimal results."
         : "إجراءات ترميمية متقدمة يجريها جراحون متخصصون، تجمع بين الخبرة الطبية والدقة الجمالية لنتائج مثالية.",
-      image: "/public/images/bikini.gif",
+      image: "/images/bikini.gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -32,7 +32,7 @@ const CosmeticGynecology = () => {
       description: language === "en" 
         ? "Comprehensive post-pregnancy restoration programs designed to help new mothers regain confidence and comfort in their bodies."
         : "برامج استعادة شاملة بعد الحمل مصممة لمساعدة الأمهات الجدد على استعادة الثقة والراحة في أجسادهن.",
-      image: "/public/images/protect.gif",
+      image: "/images/protect.gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -40,7 +40,7 @@ const CosmeticGynecology = () => {
       description: language === "en" 
         ? "Comprehensive post-pregnancy restoration programs designed to help new mothers regain confidence and comfort in their bodies."
         : "برامج استعادة شاملة بعد الحمل مصممة لمساعدة الأمهات الجدد على استعادة الثقة والراحة في أجسادهن.",
-      image: "/public/images/Vaginal cleaning.gif",
+      image: "/images/Vaginal cleaning.gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
   ];

@@ -16,7 +16,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Permanent tooth replacement with natural-looking results using titanium implants."
         : "استبدال دائم للأسنان بنتائج طبيعية المظهر باستخدام غرسات التيتانيوم.",
-      image: "/public/images/Dental Crowns & Bridges.png",
+      image: "/images/Dental Crowns & Bridges.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -24,7 +24,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Transform your smile with custom porcelain veneers for a flawless appearance."
         : "حوّل ابتسامتك مع قشور البورسلين المخصصة للحصول على مظهر مثالي.",
-      image: "/public/images/Fillings Root Canal.png",
+      image: "/images/Fillings Root Canal.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -32,7 +32,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Professional whitening treatments for a brighter, more confident smile."
         : "علاجات تبييض احترافية لابتسامة أكثر إشراقاً وثقة.",
-      image: "/public/images/Filling Regular.png",
+      image: "/images/Filling Regular.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     
@@ -41,7 +41,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Pain-free root canal therapy with advanced techniques and technology."
         : "علاج قناة الجذر بدون ألم مع تقنيات وتكنولوجيا متقدمة.",
-      image: "/public/images/Filling Cosmatic.png",
+      image: "/images/Filling Cosmatic.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -49,7 +49,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Straighten your teeth with modern braces and invisible aligners."
         : "قوّم أسنانك مع التقويم الحديث والمصففات الشفافة.",
-      image: "/public/images/Filling pedatical.png",
+      image: "/images/Filling pedatical.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -57,7 +57,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/orthodontics.png",
+      image: "/images/orthodontics.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -65,7 +65,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/teeth whitening laser.png",
+      image: "/images/teeth whitening laser.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -73,7 +73,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/teeth whitening home kits.png",
+      image: "/images/teeth whitening home kits.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -81,7 +81,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/teeth extraction simple.png",
+      image: "/images/teeth extraction simple.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -89,7 +89,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/teeth ex sur.png",
+      image: "/images/teeth ex sur.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -97,7 +97,7 @@ const Dental = () => {
       description: language === "en" 
         ? "Restore damaged teeth with premium quality dental crowns."
         : "استعد الأسنان التالفة بتيجان أسنان عالية الجودة.",
-      image: "/public/images/scaling and polishing.png",
+      image: "/images/scaling and polishing.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
   ];

@@ -16,7 +16,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Smooth wrinkles and restore volume with our premium injectables."
         : "تنعيم التجاعيد واستعادة الحجم مع حقننا الفاخرة.",
-      image: "/public/images/Aesthetic-filler.png",
+      image: "/images/Aesthetic-filler.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -24,7 +24,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Reveal brighter, smoother skin with customized peel treatments."
         : "اكشف عن بشرة أكثر إشراقاً ونعومة مع علاجات التقشير المخصصة.",
-      image: "/public/images/Aesthetic-botox.png",
+      image: "/images/Aesthetic-botox.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -32,7 +32,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Advanced laser technology for skin resurfacing and rejuvenation."
         : "تقنية الليزر المتقدمة لتجديد سطح البشرة وتجديدها.",
-      image: "/public/images/Aesthetic-skin-booster.png",
+      image: "/images/Aesthetic-skin-booster.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -40,7 +40,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Comprehensive solutions for clear, healthy skin."
         : "حلول شاملة لبشرة صافية وصحية.",
-      image: "/public/images/breast-reduction (1).gif",
+      image: "/images/breast-reduction (1).gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -48,7 +48,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Restore youthful glow with our advanced rejuvenation protocols."
         : "استعد توهج الشباب مع بروتوكولات التجديد المتقدمة لدينا.",
-      image: "/public/images/breast-augmentation.gif",
+      image: "/images/breast-augmentation.gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -56,7 +56,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
-      image: "/public/images/fat-removal.gif",
+      image: "/images/fat-removal.gif",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -64,7 +64,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
-      image: "/public/images/lose-weight.png",
+      image: "/images/lose-weight.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
@@ -72,7 +72,7 @@ const Dermatology = () => {
       description: language === "en" 
         ? "Platelet-rich plasma therapy for natural skin healing and hair restoration."
         : "علاج البلازما الغنية بالصفائح الدموية للشفاء الطبيعي للبشرة واستعادة الشعر.",
-      image: "/public/images/buttocks.png",
+      image: "/images/buttocks.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
   ];
