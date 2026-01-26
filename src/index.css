@@ -179,3 +179,8 @@ html {
   scrollbar-color: #EAB308 transparent !important; /* للفايرفوكس */
   -webkit-overflow-scrolling: touch; /* حركة سحب ناعمة */
 }
+
+/* لجعل الـ iframe الخاص بالخلفية يغطي الشاشة دائماً كأنه object-cover */
+iframe {
+  pointer-events: none;
+}
