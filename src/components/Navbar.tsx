@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, Sparkles, Heart } from "lucide-react";
+import { Menu, X, Globe, Sparkles, LogIn } from "lucide-react"; // أضفت LogIn للأيقونات
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
@@ -43,17 +43,14 @@ const Navbar = () => {
               : "bg-white/20 backdrop-blur-[12px] border-white/30 py-4 scale-100 shadow-none"
           )}
         >
-          {/* --- LOGO SECTION (With Tilt Effect) --- */}
+          {/* --- LOGO SECTION --- */}
           <Link to="/" className="relative z-10 flex items-center gap-3 group">
             <motion.div 
               className="relative flex items-center justify-center"
-              // التأثير المطلوب: ميلان وتكبير عند الـ Hover
               whileHover={{ rotate: -12, scale: 1.15 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              {/* توهج خلف اللوجو */}
               <div className="absolute inset-0 bg-[#E91E63]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
               <img 
                 src="/images/logo.png" 
                 alt="Logo" 
@@ -62,7 +59,7 @@ const Navbar = () => {
             </motion.div>
           </Link>
 
-          {/* --- DESKTOP NAV LINKS (Glass Style) --- */}
+          {/* --- DESKTOP NAV LINKS --- */}
           <div className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/10">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -88,8 +85,9 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* --- ACTION BUTTONS --- */}
+          {/* --- ACTION BUTTONS (Desktop Only) --- */}
           <div className="flex items-center gap-2 md:gap-4">
+            {/* أزرار اللغة وتسجيل الدخول تظهر فقط في الديسكتوب هنا */}
             <button
               onClick={() => setLanguage(language === "en" ? "ar" : "en")}
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/30 backdrop-blur-sm transition-all border border-transparent hover:border-white/20"
@@ -127,16 +125,17 @@ const Navbar = () => {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(25px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-[200] bg-white/80 flex flex-col items-center justify-center p-8"
+            className="fixed inset-0 z-[200] bg-white/90 flex flex-col items-center justify-center p-8 overflow-y-auto"
           >
             <button 
               onClick={() => setIsOpen(false)}
-              className="absolute top-10 right-10 p-4 rounded-full bg-black text-white"
+              className="absolute top-10 right-10 p-4 rounded-full bg-black text-white hover:bg-[#E91E63] transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <nav className="flex flex-col gap-8 text-center">
+            {/* روابط التنقل للموبايل */}
+            <nav className="flex flex-col gap-6 text-center mb-10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -148,7 +147,7 @@ const Navbar = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "text-5xl font-serif font-bold transition-all",
+                      "text-4xl md:text-5xl font-serif font-bold transition-all block py-2",
                       isActive(link.href) ? "text-[#E91E63]" : "text-black/30 hover:text-black"
                     )}
                   >
@@ -157,6 +156,39 @@ const Navbar = () => {
                 </motion.div>
               ))}
             </nav>
+
+            {/* --- إضافة: أزرار اللغة والدخول للموبايل --- */}
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.5 }}
+               className="w-full max-w-xs flex flex-col gap-4 border-t border-black/10 pt-8"
+            >
+               {/* زر تغيير اللغة */}
+               <button 
+                 onClick={() => { setLanguage(language === "en" ? "ar" : "en"); setIsOpen(false); }}
+                 className="flex items-center justify-between w-full px-6 py-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors"
+               >
+                 <span className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-black/60">
+                    <Globe className="w-5 h-5 text-[#E91E63]" />
+                    {language === "en" ? "Switch Language" : "تغيير اللغة"}
+                 </span>
+                 <span className="text-[#E91E63] font-black font-serif">
+                    {language === "en" ? "العربية" : "English"}
+                 </span>
+               </button>
+
+               {/* زر تسجيل الدخول */}
+               <Link 
+                 to="/login"
+                 onClick={() => setIsOpen(false)}
+                 className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-black text-white hover:bg-[#E91E63] transition-colors shadow-xl"
+               >
+                  <span className="text-xs font-black uppercase tracking-[0.2em]">{t.nav.login}</span>
+                  <LogIn className="w-4 h-4" />
+               </Link>
+            </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
