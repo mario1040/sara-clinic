@@ -2,84 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
 
 /* Citrine Clinic - Luxury Medical Center Design System */
 
 @layer base {
   :root {
-    /* Navy & Gold Luxury Palette */
-    --background: 216 50% 10%;
-    --foreground: 45 43% 90%;
+    /* Brand tokens for Dr. Sara Abd Allah */
+    /* Primary / Accent: #E91E63 -> approx HSL 340 82% 52% */
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%; /* white on primary */
 
-    --card: 216 50% 12%;
-    --card-foreground: 45 43% 90%;
+    /* Background: #F5EEE6 -> approx HSL 32 43% 93% */
+    --background: 32 43% 93%;
+    --foreground: 0 0% 0%; /* main text: black */
 
-    --popover: 216 50% 12%;
-    --popover-foreground: 45 43% 90%;
+    /* Simple card/popover tokens derived from background */
+    --card: 32 43% 98%;
+    --card-foreground: 0 0% 0%;
+    --popover: 32 43% 98%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Luxury Gold */
-    --primary: 43 74% 52%;
-    --primary-foreground: 216 50% 10%;
-
-    /* Muted Navy */
-    --secondary: 216 40% 18%;
-    --secondary-foreground: 45 43% 90%;
-
-    --muted: 216 40% 20%;
-    --muted-foreground: 216 20% 60%;
-
-    --accent: 43 74% 52%;
-    --accent-foreground: 216 50% 10%;
+    /* Secondary / Muted tokens (soft warm neutrals) */
+    --secondary: 340 40% 80%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 32 20% 88%;
+    --muted-foreground: 0 0% 0%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 216 30% 25%;
-    --input: 216 30% 20%;
-    --ring: 43 74% 52%;
+    --border: 32 20% 85%;
+    --input: 32 20% 90%;
+    --ring: 340 82% 52%;
 
     --radius: 0.5rem;
 
-    /* Custom Luxury Tokens */
+    /* Small brand aliases */
     --gold: 43 74% 52%;
-    --gold-light: 43 74% 65%;
-    --gold-dark: 43 74% 40%;
     --navy: 216 50% 10%;
-    --navy-light: 216 40% 18%;
-    --navy-dark: 216 60% 6%;
 
-    /* Sidebar */
-    --sidebar-background: 216 50% 8%;
-    --sidebar-foreground: 45 43% 90%;
-    --sidebar-primary: 43 74% 52%;
-    --sidebar-primary-foreground: 216 50% 10%;
-    --sidebar-accent: 216 40% 18%;
-    --sidebar-accent-foreground: 45 43% 90%;
-    --sidebar-border: 216 30% 25%;
-    --sidebar-ring: 43 74% 52%;
+    /* Sidebar tokens kept neutral */
+    --sidebar-background: 32 43% 96%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 340 82% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-border: 32 20% 85%;
+    --sidebar-ring: 340 82% 52%;
   }
 
   .dark {
-    --background: 216 50% 10%;
-    --foreground: 45 43% 90%;
-    --card: 216 50% 12%;
-    --card-foreground: 45 43% 90%;
-    --popover: 216 50% 12%;
-    --popover-foreground: 45 43% 90%;
-    --primary: 43 74% 52%;
-    --primary-foreground: 216 50% 10%;
-    --secondary: 216 40% 18%;
-    --secondary-foreground: 45 43% 90%;
-    --muted: 216 40% 20%;
-    --muted-foreground: 216 20% 60%;
-    --accent: 43 74% 52%;
-    --accent-foreground: 216 50% 10%;
+    /* Dark variant: keep primary but darken background */
+    --background: 220 20% 8%;
+    --foreground: 0 0% 100%;
+    --card: 220 18% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 18% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 40% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 18% 12%;
+    --muted-foreground: 220 10% 60%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 216 30% 25%;
-    --input: 216 30% 20%;
-    --ring: 43 74% 52%;
+    --border: 220 14% 12%;
+    --input: 220 14% 10%;
+    --ring: 340 82% 52%;
   }
 }
 
@@ -90,15 +80,18 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Bahij TheSansArabic', sans-serif;
   }
 
   html[dir="rtl"] body {
-    font-family: 'Cairo', sans-serif;
+    /* Arabic body text per brand */
+    font-family: 'Bahij TheSansArabic', 'Cairo', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    /* Headings use Audrey / Glitten (serif fallback) and use brand pink */
+    font-family: 'Audrey', 'Glitten', 'Playfair Display', serif;
+    @apply text-primary;
   }
 
   html[dir="rtl"] h1,
@@ -130,9 +123,10 @@
   }
 
   .luxury-button {
-    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-full 
-           hover:bg-primary/90 transition-all duration-300 
-           shadow-lg shadow-primary/20 hover:shadow-primary/40;
+      /* Brand primary button: pink background, white text */
+      @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-full
+        hover:bg-primary/90 transition-all duration-300
+        shadow-lg shadow-primary/20 hover:shadow-primary/40;
   }
 
   .luxury-button-outline {

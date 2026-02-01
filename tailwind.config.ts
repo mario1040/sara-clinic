@@ -16,9 +16,14 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
-        arabic: ['Cairo', 'sans-serif'],
+        // Headings (English): Audrey or Glitten (serif fallbacks)
+        serif: ['Audrey', 'Glitten', 'Playfair Display', 'serif'],
+        // Body (default LTR)
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        // Body (Arabic / RTL)
+        arabic: ['Bahij TheSansArabic', 'Cairo', 'sans-serif'],
+        // Decorative / special cases
+        decorative: ['Dancing Script', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",

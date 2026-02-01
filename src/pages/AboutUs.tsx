@@ -1,169 +1,213 @@
-import { motion } from "framer-motion";
+"use client";
+
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
-import { Award, Users, Heart, Globe } from "lucide-react";
+import { Award, Users, Heart, Sparkles, MoveRight, Star } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+
+// --- 1. مكون الأرقام المتحركة (Elegant Counter) ---
+const Counter = ({ value, duration = 2 }: { value: string, duration?: number }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const numericValue = parseInt(value.replace(/\D/g, ""));
+  const suffix = value.replace(/[0-9]/g, "");
+
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const end = numericValue;
+      const totalTicks = 60;
+      const increment = end / totalTicks;
+      const intervalTime = (duration * 1000) / totalTicks;
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setDisplayValue(end);
+          clearInterval(timer);
+        } else {
+          setDisplayValue(Math.floor(start));
+        }
+      }, intervalTime);
+      return () => clearInterval(timer);
+    }
+  }, [isInView, numericValue, duration]);
+
+  return <span ref={ref} className="tabular-nums">{displayValue}{suffix}</span>;
+};
 
 const AboutUs = () => {
   const { t, language } = useLanguage();
+  const parallaxRef = useRef(null);
+
+  // Parallax للمحتوى
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"]
+  });
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const stats = [
-    { number: "15+", label: language === "en" ? "Years of Excellence" : "سنوات من التميز" },
-    { number: "50+", label: language === "en" ? "Expert Specialists" : "متخصصون خبراء" },
-    { number: "10K+", label: language === "en" ? "Happy Patients" : "مريض سعيد" },
-    { number: "98%", label: language === "en" ? "Satisfaction Rate" : "معدل الرضا" },
-  ];
-
-  const values = [
-    {
-      icon: Award,
-      title: language === "en" ? "Excellence" : "التميز",
-      description: language === "en" 
-        ? "We pursue the highest standards in medical aesthetics and patient care."
-        : "نسعى لأعلى المعايير في التجميل الطبي ورعاية المرضى.",
-    },
-    {
-      icon: Users,
-      title: language === "en" ? "Personalization" : "التخصيص",
-      description: language === "en" 
-        ? "Every treatment plan is tailored to your unique goals and anatomy."
-        : "كل خطة علاج مصممة خصيصاً لأهدافك وتشريحك الفريد.",
-    },
-    {
-      icon: Heart,
-      title: language === "en" ? "Compassion" : "الرحمة",
-      description: language === "en" 
-        ? "Your comfort and confidence are at the heart of everything we do."
-        : "راحتك وثقتك في قلب كل ما نفعله.",
-    },
-    {
-      icon: Globe,
-      title: language === "en" ? "Innovation" : "الابتكار",
-      description: language === "en" 
-        ? "We embrace cutting-edge technology and techniques from around the world."
-        : "نتبنى أحدث التقنيات والتقنيات من جميع أنحاء العالم.",
-    },
+    { number: "12+", label: language === "en" ? "Years of Beauty" : "عاماً من الجمال" },
+    { number: "15K+", label: language === "en" ? "Happy Faces" : "وجه سعيد" },
+    { number: "100%", label: language === "en" ? "Precision" : "دقة متناهية" },
+    { number: "25+", label: language === "en" ? "Expert Services" : "خدمة خبيرة" },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F5EEE6] text-black overflow-hidden font-sans">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
+
+      {/* --- HERO SECTION: The Artistic Reveal --- */}
+      <section className="relative min-h-[90vh] flex items-center pt-24">
+        {/* العناصر الزخرفية */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#E91E63]/5 rounded-l-[10rem] -z-0" />
+        
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-              <span className="gold-text">{t.about.title}</span>
+            <motion.span 
+              style={{ fontFamily: "'Dancing Script', cursive" }}
+              className="text-[#E91E63] text-3xl mb-4 block"
+            >
+              Simply Blossom...
+            </motion.span>
+            <h1 className="text-6xl md:text-8xl font-serif font-bold leading-[0.9] mb-8 tracking-tighter">
+              Defining <br />
+              <span className="text-[#E91E63] italic">Aesthetic</span> <br />
+              Mastery
             </h1>
-            <p className="text-xl text-foreground/60">
-              {t.about.subtitle}
+            <p className="text-lg text-black/60 max-w-md leading-relaxed mb-10">
+              {language === 'en' 
+                ? "Dr. Sara Abd Allah Clinic is where medical science meets the delicacy of art to reveal your natural radiance."
+                : "عيادة دكتورة سارة عبد الله حيث يلتقي العلم الطبي برقة الفن للكشف عن إشراقك الطبيعي."}
             </p>
           </motion.div>
+
+          <div className="relative">
+             <motion.div 
+               initial={{ scale: 0.8, opacity: 0 }}
+               animate={{ scale: 1, opacity: 1 }}
+               transition={{ duration: 1.5 }}
+               className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white"
+             >
+               <img 
+                 src="/images/doctorsara2.png" 
+                 className="w-full aspect-[4/5] object-cover" 
+                 alt="Luxury Clinic" 
+               />
+             </motion.div>
+             {/* Floating Badge */}
+             <motion.div 
+               animate={{ y: [0, -20, 0] }}
+               transition={{ duration: 4, repeat: Infinity }}
+               className="absolute -bottom-10 -left-10 bg-black text-white p-8 rounded-full z-20 hidden md:block"
+             >
+                <Star className="text-[#E91E63] mb-2 fill-[#E91E63]" />
+                <div className="text-xs font-bold tracking-widest uppercase italic">The Gold <br/> Standard</div>
+             </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-serif font-bold text-primary mb-2">
-                  {stat.number}
+      {/* --- STATS SECTION: The Glass Marquee --- */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6">
+          <div className="bg-white/40 backdrop-blur-xl border border-white rounded-[3rem] p-12 grid grid-cols-2 md:grid-cols-4 gap-8 shadow-xl shadow-[#E91E63]/5">
+            {stats.map((stat, i) => (
+              <div key={i} className="text-center group">
+                <div className="text-4xl md:text-6xl font-serif font-bold text-[#E91E63] mb-2">
+                  <Counter value={stat.number} />
                 </div>
-                <div className="text-sm text-foreground/60">{stat.label}</div>
-              </motion.div>
+                <div className="text-[10px] uppercase tracking-[0.2em] font-black text-black/40">
+                  {stat.label}
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=800&fit=crop"
-                alt="Citrine Clinic Interior"
-                className="rounded-2xl shadow-2xl"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-                {language === "en" ? "Our Story" : "قصتنا"}
-              </h2>
-              <div className="space-y-4 text-foreground/70">
-                <p>
-                  {language === "en" 
-                    ? "Citrine Clinic is a specialized medical center for plastic surgery, dermatology, and dentistry. With branches in Cairo and Mansoura, we aim to provide world-class aesthetic care to the Egyptian community. We combine medical precision with an artistic touch, offering comprehensive solutions for skin, hair, and dental concerns. We believe every case begins with a thorough medical assessment and a personalized treatment plan designed to achieve the best possible results safely."
-                    : "عيادة سيترين هي مركز طبي متخصص في جراحات التجميل، الجلدية، وطب الأسنان. من خلال فروعنا في القاهرة والمنصورة، نسعى لتوفير رعاية تجميلية بمواصفات عالمية للمجتمع المصري. نحن نجمع بين الدقة الطبية واللمسة الفنية، ونقدم حلولاً شاملة لمشاكل البشرة والشعر و"
-                  }
-                </p>
-                <p>
-                  {language === "en" 
-                    ? "Our founders, a team of internationally trained specialists, envisioned a clinic that would set new standards in aesthetic medicine while maintaining the warmth and personalized attention of a boutique practice."
-                    : "تصور مؤسسونا، فريق من المتخصصين المدربين دولياً، عيادة تضع معايير جديدة في الطب التجميلي مع الحفاظ على الدفء والاهتمام الشخصي لممارسة فريدة."
-                  }
-                </p>
-              </div>
-            </motion.div>
+      {/* --- STORY SECTION: Parallax & Floating Elements --- */}
+      <section ref={parallaxRef} className="py-32 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-12 gap-20 items-center">
+            
+            <div className="lg:col-span-6 relative">
+              <motion.div style={{ y: y1 }} className="relative z-10 rounded-t-full overflow-hidden border-8 border-white">
+                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1000" alt="Detail" />
+              </motion.div>
+              <motion.div 
+                style={{ y: y2 }}
+                className="absolute -bottom-20 -right-10 w-2/3 rounded-3xl overflow-hidden border-8 border-[#F5EEE6] shadow-2xl z-20"
+              >
+                <img src="/images/doctorsara3.png" alt="Doctor" />
+              </motion.div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-5xl md:text-7xl font-serif font-bold mb-10">
+                  Crafting <span className="text-[#E91E63] italic">Confidence</span>
+                </h2>
+                <div className="space-y-6 text-black/60 text-xl font-light leading-relaxed italic">
+                  <p className="first-letter:text-7xl first-letter:text-[#E91E63] first-letter:font-serif first-letter:float-left first-letter:mr-4">
+                    {language === 'en' 
+                      ? "At our clinic, we believe that beauty is not about changing who you are, but about blossoming into your most radiant self. Dr. Sara combines surgical precision with a deep understanding of natural aesthetics."
+                      : "في عيادتنا، نؤمن أن الجمال لا يتعلق بتغيير هويتك، بل بالتفتح لتصبحي النسخة الأكثر إشراقاً من نفسك. تجمع دكتورة سارة بين الدقة الجراحية والفهم العميق للجمال الطبيعي."}
+                  </p>
+                </div>
+
+                <motion.button 
+                  whileHover={{ gap: "2rem" }}
+                  className="mt-12 flex items-center gap-6 text-black font-black uppercase tracking-[0.3em] text-xs transition-all"
+                >
+                  {language === 'en' ? "Explore Our Vision" : "اكتشفي رؤيتنا"}
+                  <div className="w-12 h-12 rounded-full border border-black flex items-center justify-center">
+                    <MoveRight className="w-5 h-5" />
+                  </div>
+                </motion.button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              <span className="gold-text">
-                {language === "en" ? "Our Values" : "قيمنا"}
-              </span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
+      {/* --- VALUES: The Organic Cards --- */}
+      <section className="py-32 bg-white/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+             <h3 className="text-4xl font-serif font-bold mb-4 italic">Our Core Philosophy</h3>
+             <div className="w-24 h-1 bg-[#E91E63] mx-auto" />
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Heart, title: "Care", text: "Compassionate approach to every patient's needs." },
+              { icon: Sparkles, title: "Artistry", text: "Medical results that look and feel completely natural." },
+              { icon: Award, title: "Safety", text: "Highest medical standards and sterilized environment." }
+            ].map((item, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="luxury-card p-6 text-center"
+                key={i}
+                whileHover={{ y: -20 }}
+                className="p-12 rounded-[4rem] bg-[#F5EEE6] border border-white shadow-sm flex flex-col items-center text-center group transition-all duration-500 hover:shadow-2xl hover:shadow-[#E91E63]/10"
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-7 h-7 text-primary" />
+                <div className="w-20 h-20 rounded-[2rem] bg-white flex items-center justify-center mb-8 shadow-inner group-hover:rotate-[15deg] transition-transform">
+                  <item.icon className="w-10 h-10 text-[#E91E63]" />
                 </div>
-                <h3 className="text-lg font-serif font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm text-foreground/60">{value.description}</p>
+                <h4 className="text-2xl font-serif font-bold mb-4">{item.title}</h4>
+                <p className="text-black/40 leading-relaxed text-sm">{item.text}</p>
               </motion.div>
             ))}
           </div>

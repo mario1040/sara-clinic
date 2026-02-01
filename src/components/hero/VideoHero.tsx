@@ -1,115 +1,137 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Sparkles, MousePointer2 } from "lucide-react";
 
 const VideoHero = () => {
   const { t, isRTL, language } = useLanguage();
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
+  // --- أنيميشن الظهور الفخم ---
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.5 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 } 
+    }
+  };
+
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative h-[100svh] flex items-center justify-center overflow-hidden bg-black">
       
-      {/* --- 1. Background Video (YouTube Optimized) --- */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+      {/* 1. الفيديو الخلفي (YouTube) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <iframe
-          // الحسابات دي بتضمن إن الفيديو يملأ الشاشة تماماً مهما كان مقاسها
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                     w-[177.77vh] h-[56.25vw] min-w-full min-h-full scale-110"
-          src="https://www.youtube.com/embed/UXLG0gJMx8k?autoplay=1&mute=1&loop=1&playlist=UXLG0gJMx8k&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-          title="Citrine Clinic Video"
+                     w-[177.77vh] h-[56.25vw] min-w-full min-h-full scale-110 brightness-[0.6]"
+          src="https://www.youtube.com/embed/UXLG0gJMx8k?autoplay=1&mute=1&loop=1&playlist=UXLG0gJMx8k&controls=0&rel=0&modestbranding=1&playsinline=1"
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; encrypted-media"
         ></iframe>
       </div>
 
-      {/* --- 2. Advanced Overlays --- */}
-      {/* طبقة غامقة شاملة */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
-      
-      {/* تدرج سفلي لدمج السيكشن مع اللي تحته */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-black/20 z-[2]" />
+      {/* 2. طبقات الإضاءة والظلال - لضمان وضوح الزراير */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-navy-dark z-[1]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-[2]" />
 
-      {/* --- 3. Content Container --- */}
-      <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Eyebrow Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <span className="inline-block px-6 py-2 rounded-full border border-primary/30 text-primary text-xs md:text-sm tracking-[0.3em] uppercase backdrop-blur-md bg-white/5">
-              {language === 'en' ? 'Excellence in Care' : 'التميز في الرعاية'}
+      {/* 3. المحتوى الرئيسي */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center"
+      >
+        
+        {/* Badge علوي جذاب */}
+        <motion.div variants={itemVariants} className="mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-md">
+            <Sparkles className="w-3 h-3 text-primary animate-pulse" />
+            <span className="text-primary text-[10px] tracking-[0.3em] uppercase font-bold">
+              Citrine Royal Experience
             </span>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Main Headline (بدون تغيير نوع الخط) */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] mb-8"
-          >
-            <span className="text-white block mb-2">{t.hero.title}</span>
-            <span className="gold-text italic block">{t.hero.titleHighlight}</span>
-          </motion.h1>
+        {/* العناوين */}
+        <motion.h1 
+          variants={itemVariants}
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-white leading-tight mb-6"
+        >
+          {t.hero.title} <br />
+          <span className="gold-text italic">{t.hero.titleHighlight}</span>
+        </motion.h1>
 
-          {/* Subtitle (بدون تغيير نوع الخط) */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base md:text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed font-light px-4"
-          >
-            {t.hero.subtitle}
-          </motion.p>
+        <motion.p 
+          variants={itemVariants}
+          className="text-white/70 text-sm md:text-lg max-w-2xl mb-12 font-light leading-relaxed"
+        >
+          {t.hero.subtitle}
+        </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
-          >
-            <Link
-              to="/contact-us"
-              className="luxury-button min-w-[220px] py-4 flex items-center justify-center gap-3 group"
-            >
-              {t.hero.cta}
-              <ArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-            </Link>
+        {/* --- قسم الزراير "الجذابة" --- */}
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-md sm:max-w-none"
+        >
+          {/* الزرار الأول: الـ "Magnetic Golden" */}
+          <Link to="/contact-us" className="relative group w-full sm:w-auto">
+            {/* توهج خلف الزرار */}
+            <div className="absolute -inset-1 bg-primary rounded-full blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
             
-            <Link
-              to="/services"
-              className="px-8 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-300 backdrop-blur-md min-w-[220px]"
+            <motion.div 
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex items-center justify-center gap-3 px-10 py-5 bg-primary rounded-full text-navy-dark font-bold text-sm tracking-widest uppercase overflow-hidden shadow-[0_10px_30px_rgba(234,179,8,0.3)]"
+            >
+              {/* لمعة متحركة داخل الزرار */}
+              <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:left-[100%] transition-all duration-1000" />
+              
+              {t.hero.cta}
+              <ArrowIcon className="w-5 h-5 transition-transform group-hover:translate-x-2 rtl:group-hover:-translate-x-2" />
+            </motion.div>
+          </Link>
+
+          {/* الزرار الثاني: الـ "Glass Outline" */}
+          <Link to="/services" className="w-full sm:w-auto">
+            <motion.div 
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 rounded-full border border-white/30 backdrop-blur-md text-white font-bold text-sm tracking-widest uppercase flex items-center justify-center transition-all"
             >
               {t.hero.ctaSecondary}
-            </Link>
-          </motion.div>
-        </div>
-      </div>
+            </motion.div>
+          </Link>
+        </motion.div>
 
-      {/* --- 4. Scroll Down Indicator --- */}
-      <motion.div
+      </motion.div>
+
+      {/* 4. مؤشر الماوس / السكرول بصيغة إبداعية */}
+      <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        transition={{ delay: 2 }}
+        className="absolute bottom-10 flex flex-col items-center gap-2 z-10"
       >
-        <div className="flex flex-col items-center gap-3">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
+        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center p-1.5">
+          <motion.div 
+            animate={{ y: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="w-5 h-9 rounded-full border border-white/30 flex justify-center p-1"
-          >
-            <div className="w-1 h-2 bg-primary rounded-full" />
-          </motion.div>
+            className="w-1 h-1 bg-primary rounded-full"
+          />
         </div>
+        <span className="text-[8px] text-primary tracking-[0.5em] uppercase">Scroll</span>
       </motion.div>
 
     </section>
