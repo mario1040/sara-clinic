@@ -37,7 +37,7 @@ const Signup = () => {
       >
         {/* Logo */}
         <Link to="/" className="block text-center mb-8">
-          <span className="text-4xl font-serif font-bold text-primary">Citrine</span>
+          <span className="text-4xl font-serif font-bold text-primary">Sara Clinic</span>
         </Link>
 
         {/* Card */}
