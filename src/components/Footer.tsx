@@ -23,11 +23,11 @@ const Footer = () => {
   const { t, language } = useLanguage();
 
   const socialLinks = [
-    { icon: Instagram, href: "#", color: "hover:bg-[#E91E63]" },
-    { icon: Facebook, href: "#", color: "hover:bg-[#1877F2]" },
-    { icon: TiktokIcon, href: "#", color: "hover:bg-black" },
-    { icon: SnapchatIcon, href: "#", color: "hover:bg-[#FFFC00] hover:text-black" },
-    { icon: Youtube, href: "#", color: "hover:bg-[#FF0000]" },
+    { icon: Instagram, href: "https://www.instagram.com/drsaraabdallah", color: "hover:bg-[#E91E63]" },
+    { icon: Facebook, href: "https://www.facebook.com/drsaraabdallah/", color: "hover:bg-[#1877F2]" },
+    { icon: TiktokIcon, href: "https://www.tiktok.com/@drsaraabdallah", color: "hover:bg-black" },
+    { icon: SnapchatIcon, href: "https://www.snapchat.com/@drsaraabdallah", color: "hover:bg-[#FFFC00] hover:text-black" },
+    { icon: Youtube, href: "https://www.youtube.com/@drsaraabdallah", color: "hover:bg-[#FF0000]" },
   ];
 
   return (
