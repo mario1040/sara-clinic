@@ -89,7 +89,7 @@ const Services = () => {
         ? "Rhinoplasty, Facelift, Liposuction, and Body Contouring." 
         : "تجميل الأنف، شد الوجه، شفط الدهون، ونحت القوام.",
       image: "/images/service1.png",
-      link: "/services/plastic-surgery",
+      link: "/services/dermatology",
       icon: Microscope
     },
     {
@@ -100,7 +100,7 @@ const Services = () => {
         ? "Botox, Fillers, Laser Treatments, and Skin Rejuvenation." 
         : "البوتوكس، الفيلر، علاجات الليزر، وتجديد البشرة.",
       image: "/images/service2.png",
-      link: "/services/dermatology",
+      link: "/services/plastic-surgery",
       icon: Sparkles
     }
   ];
