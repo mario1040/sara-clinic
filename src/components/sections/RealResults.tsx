@@ -3,10 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { ChevronLeft, ChevronRight, Star, User, Smile, Activity } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Scissors, Sparkles, Syringe, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// --- 1. تعريف الأنواع (Interfaces) ---
+// --- 1. تعريف الأنواع ---
 interface Case {
   before: string;
   after: string;
@@ -23,43 +23,74 @@ interface Specialty {
   id: string;
   labelEn: string;
   labelAr: string;
-  iconPath?: string;
   icon: React.ReactNode;
   services: Service[];
 }
 
-// --- 2. البيانات (البيانات التي قدمتها مسبقاً) ---
+// --- 2. البيانات (الهيكلة الجديدة حسب طلبك) ---
 const specialties: Specialty[] = [
   {
-    id: "hair-transplant",
-    labelEn: "Hair Artistry",
-    labelAr: "فن زراعة الشعر",
-    iconPath: "/images/icons/hair-transplant (1).png",
-    icon: <User className="w-5 h-5" />,
+    id: "surgical",
+    labelEn: "Surgical Aesthetics",
+    labelAr: "التجميل الجراحي",
+    icon: <Scissors className="w-5 h-5" />, // أيقونة المقص للجراحة
     services: [
-      { id: "hair1", labelEn: "Frontal Area", labelAr: "مقدمة الرأس", case: { before: "/images/imagecb2.png", after: "/images/imageca2.png" } },
-      { id: "hair2", labelEn: "Crown Density", labelAr: "كثافة التاج", case: { before: "/images/image (37).png", after: "/images/imageca3.png" } },
+      { 
+        id: "breast-aug", 
+        labelEn: "Breast Augmentation", 
+        labelAr: "تكبير الثدي", 
+        case: { before: "/images/cases/breast-aug-before.jpg", after: "/images/cases/breast-aug-after.jpg" } 
+      },
+      { 
+        id: "breast-red", 
+        labelEn: "Breast Reduction", 
+        labelAr: "تصغير الثدي", 
+        case: { before: "/images/cases/breast-red-before.jpg", after: "/images/cases/breast-red-after.jpg" } 
+      },
+      { 
+        id: "lipo-transfer", 
+        labelEn: "Lipo & Fat Transfer", 
+        labelAr: "شفط وحقن الدهون", 
+        case: { before: "/images/cases/lipo-before.jpg", after: "/images/cases/lipo-after.jpg" } 
+      },
+      { 
+        id: "body-contour", 
+        labelEn: "Body Contouring", 
+        labelAr: "نحت الجسم", 
+        case: { before: "/images/cases/contour-before.jpg", after: "/images/cases/contour-after.jpg" } 
+      },
+      { 
+        id: "buttock", 
+        labelEn: "Gluteal Augmentation", 
+        labelAr: "تكبير المؤخرة", 
+        case: { before: "/images/cases/bbl-before.jpg", after: "/images/cases/bbl-after.jpg" } 
+      },
     ]
   },
   {
-    id: "lip-filler",
-    labelEn: "Lip Sculpting",
-    labelAr: "نحت الشفاه",
-    iconPath: "/images/icons/lips.png",
-    icon: <Smile className="w-5 h-5" />,
+    id: "non-surgical",
+    labelEn: "Non-Surgical Art",
+    labelAr: "التجميل اللاجراحي",
+    icon: <Sparkles className="w-5 h-5" />, // أيقونة اللمعان لللا جراحي
     services: [
-      { id: "lip1", labelEn: "Russian Lips", labelAr: "الشفاه الروسية", case: { before: "/images/imagecb5.png", after: "/images/imageca5.png" } },
-      { id: "lip4", labelEn: "Correction", labelAr: "تذويب وتصحيح", case: { before: "/images/imagecb1.png", after: "/images/imageca1.png" } }
-    ]
-  },
-  {
-    id: "dermatology",
-    labelEn: "Pure Skin",
-    labelAr: "نقاء البشرة",
-    iconPath: "/images/icons/acne.png",
-    icon: <Activity className="w-5 h-5" />,
-    services: [
-      { id: "derm1", labelEn: "Acne Control", labelAr: "علاج حب الشباب", case: { before: "/images/imagecb7.png", after: "/images/imageca7.png" } },
+      { 
+        id: "fillers", 
+        labelEn: "Dermal Fillers", 
+        labelAr: "الفيلر", 
+        case: { before: "/images/cases/filler-before.jpg", after: "/images/cases/filler-after.jpg" } 
+      },
+      { 
+        id: "botox", 
+        labelEn: "Botox", 
+        labelAr: "البوتوكس", 
+        case: { before: "/images/cases/botox-before.jpg", after: "/images/cases/botox-after.jpg" } 
+      },
+      { 
+        id: "skin-booster", 
+        labelEn: "Skin Booster", 
+        labelAr: "إسكين بوستر", 
+        case: { before: "/images/cases/booster-before.jpg", after: "/images/cases/booster-after.jpg" } 
+      },
     ]
   },
 ];
@@ -88,7 +119,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, language }: { beforeImage:
   return (
     <div ref={containerRef} className="relative aspect-[4/5] md:aspect-[16/10] rounded-[3rem] overflow-hidden cursor-ew-resize shadow-2xl border-[12px] border-white group">
       {/* Before Layer */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gray-100">
         <img src={beforeImage} alt="Before" className="w-full h-full object-cover" />
         <div className={cn("absolute top-6 px-4 py-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10", language === 'ar' ? 'right-6' : 'left-6')}>
           <span className="text-[10px] font-bold text-white uppercase tracking-widest">{language === "en" ? "Before" : "قبل"}</span>
@@ -97,7 +128,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, language }: { beforeImage:
 
       {/* After Layer (Clipped) */}
       <motion.div 
-        className="absolute inset-0 overflow-hidden" 
+        className="absolute inset-0 overflow-hidden bg-gray-100" 
         style={{ clipPath: useTransform(clipWidth, (w) => `inset(0 0 0 ${w}%)`) }}
       >
         <img src={afterImage} alt="After" className="w-full h-full object-cover" />
@@ -128,15 +159,14 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, language }: { beforeImage:
   );
 };
 
-// --- 4. المكون الرئيسي (RealResults Gallery) ---
+// --- 4. المكون الرئيسي ---
 const RealResults = () => {
   const { language } = useLanguage();
   const [activeSpecialty, setActiveSpecialty] = useState(specialties[0]);
   const [activeService, setActiveService] = useState(specialties[0].services[0]);
 
-  // منطق ترجمة العناوين الرئيسية
   const header = {
-    subtitle: language === "en" ? "The Art of Transformation" : "فن التحول والجمال الطبيعي",
+    subtitle: language === "en" ? "Transformative Journeys" : "رحلات التحول الحقيقية",
     title1: language === "en" ? "REAL" : "نتائج",
     title2: language === "en" ? "RESULTS" : "حقيقية"
   };
@@ -152,12 +182,11 @@ const RealResults = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* Editorial Header */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}>
             <span 
-              style={{ fontFamily: language === 'en' ? "'Dancing Script', cursive" : "inherit" }} 
-              className={cn("text-[#E91E63] text-4xl mb-4 block", language === 'ar' && "font-bold text-2xl")}
+              className={cn("text-[#E91E63] text-2xl mb-4 block font-bold font-serif")}
             >
               {header.subtitle}
             </span>
@@ -170,13 +199,13 @@ const RealResults = () => {
           <p className={cn("text-black/40 text-sm max-w-xs uppercase font-bold tracking-[0.3em] leading-loose", language === 'ar' && "text-right")}>
             {language === 'en' 
               ? "Witness the biological mastery and artistic precision of Dr. Sara." 
-              : "شاهدوا الإتقان البيولوجي والدقة الفنية في لمسات دكتورة سارة."}
+              : "شاهدوا الإتقان الطبي والدقة الفنية في لمسات دكتورة سارة."}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
-          {/* Sidebar: Floating Specialty Menu */}
+          {/* Sidebar: Main Categories (Surgical vs Non-Surgical) */}
           <div className="lg:col-span-4 space-y-4">
             {specialties.map((specialty) => {
               const isActive = activeSpecialty.id === specialty.id;
@@ -189,33 +218,33 @@ const RealResults = () => {
                     "w-full p-6 rounded-[2.5rem] flex items-center gap-6 transition-all duration-500 border",
                     isActive 
                       ? "bg-white border-white shadow-2xl shadow-[#E91E63]/5" 
-                      : "bg-white/30 border-transparent opacity-40 hover:opacity-100"
+                      : "bg-white/30 border-transparent opacity-50 hover:opacity-100"
                   )}
                 >
                   <div className={cn(
                     "w-14 h-14 rounded-2xl flex items-center justify-center transition-all",
                     isActive ? "bg-[#E91E63] text-white shadow-lg" : "bg-white text-black/20"
                   )}>
-                    {specialty.iconPath ? (
-                      <img 
-                        src={specialty.iconPath} 
-                        className={cn("w-7 h-7 object-contain", isActive && "brightness-0 invert")} 
-                        alt="" 
-                      />
-                    ) : specialty.icon}
+                    {specialty.icon}
                   </div>
-                  <span className="text-xl font-serif font-bold tracking-tight">
-                    {language === "en" ? specialty.labelEn : specialty.labelAr}
-                  </span>
+                  <div className="text-start">
+                    <span className="text-xl font-serif font-bold tracking-tight block">
+                      {language === "en" ? specialty.labelEn : specialty.labelAr}
+                    </span>
+                    <span className="text-[10px] text-black/40 font-bold uppercase tracking-widest">
+                       {specialty.services.length} {language === "en" ? "Procedures" : "إجراءات"}
+                    </span>
+                  </div>
                   {isActive && <motion.div layoutId="active-dot" className="w-2 h-2 rounded-full bg-[#E91E63] ml-auto" />}
                 </motion.button>
               );
             })}
           </div>
 
-          {/* Main Stage: Slider & Details */}
+          {/* Main Stage: Sub-Services & Slider */}
           <div className="lg:col-span-8">
-            {/* Filter Pills */}
+            
+            {/* Filter Pills (Sub-services like Breast, Lipo, Filler...) */}
             <div className="flex gap-3 mb-12 overflow-x-auto pb-4 scrollbar-hide">
               <AnimatePresence mode="wait">
                 <motion.div 
@@ -229,9 +258,9 @@ const RealResults = () => {
                       key={service.id}
                       onClick={() => setActiveService(service)}
                       className={cn(
-                        "px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all",
+                        "px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap",
                         activeService.id === service.id 
-                          ? "bg-black text-white shadow-2xl" 
+                          ? "bg-black text-white shadow-xl" 
                           : "bg-white/50 text-black/40 hover:bg-white"
                       )}
                     >
@@ -269,7 +298,7 @@ const RealResults = () => {
                   <div className="flex items-center gap-3">
                     <Star className="w-4 h-4 text-[#E91E63] fill-[#E91E63]" />
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30">
-                      {language === "en" ? activeSpecialty.labelEn : activeSpecialty.labelAr} Procedure
+                      Dr. Sara Signature Case
                     </span>
                   </div>
                 </div>
